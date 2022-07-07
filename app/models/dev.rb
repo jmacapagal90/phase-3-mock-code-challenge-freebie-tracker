@@ -4,11 +4,7 @@ class Dev < ActiveRecord::Base
 
     def received_one(item_name)
        received_item_dev_id = Freebie.find_by(item_name: item_name).dev_id
-       if received_item_dev_id == self.id
-        true
-       else
-        false
-       end
+       received_item_dev_id == self.id ? true : false
     end
 
     def give_away(dev,freebie)

@@ -8,6 +8,7 @@ class Company < ActiveRecord::Base
     end
 
     def self.oldest_company
-        self.minimum(:founding_year)
+        oldest_year = self.minimum(:founding_year)
+        Company.find_by(founding_year: oldest_year)
     end
 end
